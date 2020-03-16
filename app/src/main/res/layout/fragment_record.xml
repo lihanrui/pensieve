@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayoutRecord"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="8dp"
+    tools:context=".ui.main.ReviewFragment">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/time_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/image_calendar"
+                    style="@style/imageInRow"
+                    android:contentDescription="@string/calendarDescription"
+                    android:src="@drawable/ic_calendar_today_24px" />
+
+                <TextView
+                    android:id="@+id/date_current"
+                    style="@style/textInRow"
+                    android:text="@string/date_current"
+                    tools:text="@string/date_current" />
+
+                <ImageView
+                    android:id="@+id/image_clock"
+                    style="@style/imageInRow"
+                    android:contentDescription="@string/clockDescription"
+                    android:src="@drawable/ic_access_time_24px" />
+
+                <TextView
+                    android:id="@+id/time_current"
+                    style="@style/textInRow"
+                    android:text="@string/time_current"
+                    tools:text="@string/time_current" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/mood_prompt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingTop="24dp"
+                android:text="@string/mood_prompt"
+                tools:text="@string/mood_prompt" />
+
+            <LinearLayout
+                android:id="@+id/mood_select"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal"
+                android:paddingLeft="48dp"
+                android:paddingRight="48dp">
+
+                <ImageView
+                    android:id="@+id/smileyVeryHappy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/veryHappyDesc"
+                    android:src="@drawable/ic_very_happy_24px" />
+
+                <ImageView
+                    android:id="@+id/smileyHappy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/happyDes"
+                    android:src="@drawable/ic_happy_24px" />
+
+                <ImageView
+                    android:id="@+id/smileySat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/satisfiedDesc"
+                    android:src="@drawable/ic_okay_24px" />
+
+                <ImageView
+                    android:id="@+id/smileyDis"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/dissatisfiedDesc"
+                    android:src="@drawable/ic_dissatisfied_24px" />
+
+                <ImageView
+                    android:id="@+id/smileyVeryDis"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/veryDissatisfiedDesc"
+                    android:src="@drawable/ic_very_dissatisfied_24px" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/title_prompt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingTop="24dp"
+                android:text="@string/title_prompt"
+                tools:text="@string/title_prompt" />
+
+            <EditText
+                android:id="@+id/title_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
+                android:ems="10"
+                android:hint="@string/title_hint"
+                android:inputType="textPersonName|textCapSentences" />
+
+            <TextView
+                android:id="@+id/details_prompt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingTop="24dp"
+                android:text="@string/details_prompt"
+                tools:text="@string/details_prompt" />
+
+            <EditText
+                android:id="@+id/details_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
+                android:ems="10"
+                android:hint="@string/details_hint"
+                android:inputType="textMultiLine|textPersonName|textCapSentences" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/submitFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/submitButton"
+        android:clickable="true"
+        android:src="@drawable/ic_check_circle_outline_24px" />
+
+</LinearLayout>

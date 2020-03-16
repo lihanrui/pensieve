@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Tabbed</string>
+    <string name="tab_text_1">Record</string>
+    <string name="tab_text_2">Review</string>
+    <string name="date_current">12-01-2020</string>
+    <string name="time_current">00:00:00</string>
+    <string name="mood_prompt">HOW ARE YOU?</string>
+    <string name="title_prompt">WHAT HAVE YOU BEEN UP TO?</string>
+    <string name="title_hint">Enter an activity title</string>
+    <string name="details_prompt">ENTER DETAILS:</string>
+    <string name="details_hint">Enter details here</string>
+    <string name="calendarDescription">An icon for calendar</string>
+    <string name="clockDescription">An icon for clock</string>
+    <string name="veryHappyDesc">An icon for very happy</string>
+    <string name="happyDes">An icon for happy</string>
+    <string name="satisfiedDesc">An icon for satisfied</string>
+    <string name="dissatisfiedDesc">An icon for dissatisfied</string>
+    <string name="veryDissatisfiedDesc">An icon for very dissatisfied</string>
+    <string name="submitButton">Submit</string>
+
+</resources>
