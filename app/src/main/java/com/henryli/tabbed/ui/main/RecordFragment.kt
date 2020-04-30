@@ -12,8 +12,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.henryli.tabbed.MainActivity
 import com.henryli.tabbed.R
-import com.henryli.tabbed.datalayer.Mood
-import com.henryli.tabbed.datalayer.RecordEntity
+import com.henryli.tabbed.data.Mood
+import com.henryli.tabbed.data.RecordEntity
 import com.henryli.tabbed.utils.Utils
 import java.text.SimpleDateFormat
 import java.util.*
@@ -53,10 +53,10 @@ class RecordFragment : Fragment() {
     }
 
     override fun onResume() {
-        val textView: TextView? = view?.findViewById(R.id.section_label)
-        pageViewModel.text.observe(viewLifecycleOwner, Observer<String> {
-            textView?.text = it
-        })
+//        val textView: TextView? = view?.findViewById(R.id.section_label)
+//        pageViewModel.text.observe(viewLifecycleOwner, Observer<String> {
+//            textView?.text = it
+//        })
         setTimeUi()
         super.onResume()
     }

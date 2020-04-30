@@ -1,4 +1,4 @@
-package com.henryli.tabbed.datalayer
+package com.henryli.tabbed.data
 
 import android.content.Context
 import androidx.room.Database

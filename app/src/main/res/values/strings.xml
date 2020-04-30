@@ -17,5 +17,9 @@
     <string name="dissatisfiedDesc">An icon for dissatisfied</string>
     <string name="veryDissatisfiedDesc">An icon for very dissatisfied</string>
     <string name="submitButton">Submit</string>
+    <string name="card_date">Set Date</string>
+    <string name="textview">Recycler card content</string>
+    <string name="string_recycler_title">Recycler Card Title</string>
+    <string name="mood_description">An icon for the mood</string>
 
 </resources>

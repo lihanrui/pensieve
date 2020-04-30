@@ -3,7 +3,7 @@ package com.henryli.tabbed.ui.main
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.henryli.tabbed.datalayer.RecordEntity
+import com.henryli.tabbed.data.RecordEntity
 
 class RecordViewModel : ViewModel() {
     private val records: MutableLiveData<List<RecordEntity>> by lazy {
@@ -18,5 +18,6 @@ class RecordViewModel : ViewModel() {
 
     private fun loadRecords() {
         // Do an asynchronous operation to fetch users.
+        // Henry: maybe do RecordRepository's load here?
     }
 }

@@ -3,9 +3,9 @@ package com.henryli.tabbed
 import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import com.henryli.tabbed.datalayer.AppDatabase
-import com.henryli.tabbed.datalayer.RecordDao
-import com.henryli.tabbed.datalayer.RecordEntity
+import com.henryli.tabbed.data.AppDatabase
+import com.henryli.tabbed.data.RecordDao
+import com.henryli.tabbed.data.RecordEntity
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.After

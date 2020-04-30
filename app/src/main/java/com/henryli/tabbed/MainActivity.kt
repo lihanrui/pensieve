@@ -2,14 +2,13 @@ package com.henryli.tabbed
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.room.Room
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
-import com.henryli.tabbed.datalayer.AppDatabase
+import com.henryli.tabbed.data.AppDatabase
 import com.henryli.tabbed.ui.main.SectionsPagerAdapter
 
 class MainActivity : AppCompatActivity() {
-//    val db = Room.databaseBuilder(
+    //    val db = Room.databaseBuilder(
 //        applicationContext,
 //        AppDatabase::class.java, "user_records.db"
 //    ).build()
@@ -35,11 +34,12 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         db = AppDatabase(this)
     }
+
     companion object {
-        private lateinit var db : AppDatabase
+        private lateinit var db: AppDatabase
 
         // onResume should have initialized db by this point
-        fun getDb() : AppDatabase{
+        fun getDb(): AppDatabase {
             return db
         }
     }

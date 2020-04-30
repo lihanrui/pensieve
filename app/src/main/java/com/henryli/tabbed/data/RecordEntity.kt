@@ -1,4 +1,4 @@
-package com.henryli.tabbed.datalayer
+package com.henryli.tabbed.data
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -32,17 +32,3 @@ data class RecordEntity(
     var category: Int = 0 // todo implement later
 
 )
-//
-//
-//import androidx.room.ColumnInfo
-//import androidx.room.Entity
-//import androidx.room.PrimaryKey
-//
-//@Entity(tableName = "todo_items")
-//data class RecordEntity(
-//    @PrimaryKey(autoGenerate = true)
-//    var id: Int,
-//
-//    @ColumnInfo(name = "title") var title: String,
-//    @ColumnInfo(name = "content") var content: String
-//)

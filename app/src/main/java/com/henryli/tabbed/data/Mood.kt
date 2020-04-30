@@ -1,4 +1,4 @@
-package com.henryli.tabbed.datalayer
+package com.henryli.tabbed.data
 
 class Mood {
     companion object {
