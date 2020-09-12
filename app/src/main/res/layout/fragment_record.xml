@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayoutRecord"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingTop="8dp"
-    tools:context=".ui.main.ReviewFragment">
+    tools:context=".ui.main.RecordFragment">
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -75,6 +74,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:contentDescription="@string/veryHappyDesc"
+                    android:onClick="setBlue"
                     android:src="@drawable/ic_very_happy_24px" />
 
                 <ImageView
@@ -83,6 +83,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:contentDescription="@string/happyDes"
+                    android:onClick="setGreen"
                     android:src="@drawable/ic_happy_24px" />
 
                 <ImageView
@@ -91,7 +92,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:contentDescription="@string/satisfiedDesc"
-                    android:src="@drawable/ic_okay_24px" />
+                    android:onClick="setYellow"
+                    android:src="@drawable/ic_satisfied_24px" />
 
                 <ImageView
                     android:id="@+id/smileyDis"
@@ -99,6 +101,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:contentDescription="@string/dissatisfiedDesc"
+                    android:onClick="setOrange"
                     android:src="@drawable/ic_dissatisfied_24px" />
 
                 <ImageView
@@ -107,6 +110,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:contentDescription="@string/veryDissatisfiedDesc"
+                    android:onClick="setRed"
                     android:src="@drawable/ic_very_dissatisfied_24px" />
             </LinearLayout>
 
@@ -159,8 +163,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:contentDescription="@string/submitButton"
         android:clickable="true"
+        android:contentDescription="@string/submitButton"
         android:src="@drawable/ic_check_circle_outline_24px" />
 
 </LinearLayout>

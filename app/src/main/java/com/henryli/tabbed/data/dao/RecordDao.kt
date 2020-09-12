@@ -1,8 +1,9 @@
-package com.henryli.tabbed.data
+package com.henryli.tabbed.data.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
+import com.henryli.tabbed.data.RecordEntity
 
 @Dao
 interface RecordDao : BaseDao<RecordEntity> {
@@ -10,7 +11,7 @@ interface RecordDao : BaseDao<RecordEntity> {
     fun getAll(): LiveData<List<RecordEntity>>
 
     @Query("SELECT * FROM user_records WHERE title LIKE :title")
-    suspend fun findByTitle(title: String): RecordEntity
+    fun findByTitle(title: String): RecordEntity
 
 }
 

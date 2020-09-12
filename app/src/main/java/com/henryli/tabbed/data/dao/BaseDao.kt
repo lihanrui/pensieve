@@ -14,12 +14,9 @@
  * limitations under the License.
  */
 
-package com.henryli.tabbed.data
+package com.henryli.tabbed.data.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Update
+import androidx.room.*
 
 @Dao
 interface BaseDao<T> {
@@ -29,7 +26,7 @@ interface BaseDao<T> {
      *
      * @param obj the object to be inserted.
      */
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(obj: T)
 
     /**

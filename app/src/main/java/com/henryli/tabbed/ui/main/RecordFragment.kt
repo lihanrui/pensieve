@@ -4,10 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.henryli.tabbed.MainActivity
@@ -15,11 +19,9 @@ import com.henryli.tabbed.R
 import com.henryli.tabbed.data.Mood
 import com.henryli.tabbed.data.RecordEntity
 import com.henryli.tabbed.utils.Utils
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.launch
-
 
 /**
  * A record fragment for recording user journal entries
@@ -29,12 +31,17 @@ class RecordFragment : Fragment() {
     private lateinit var pageViewModel: PageViewModel
     private lateinit var recordViewModel: RecordViewModel
     private val utils = Utils()
+    private lateinit var now: Date
+    private var mMood: Int = Mood.SATISFIED
+    private lateinit var mTitle: EditText
+    private lateinit var mNote: EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         pageViewModel = ViewModelProviders.of(this).get(PageViewModel::class.java).apply {
             setIndex(arguments?.getInt(ARG_SECTION_NUMBER) ?: 1)
         }
-        recordViewModel = ViewModelProviders.of(this).get(RecordViewModel::class.java)
+        recordViewModel = ViewModelProviders.of(activity!!).get(RecordViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -45,10 +52,17 @@ class RecordFragment : Fragment() {
 
         val fab: View = root.findViewById<FloatingActionButton>(R.id.submitFab)
         fab.setOnClickListener { view ->
-            lifecycleScope.launch{
+            lifecycleScope.launch {
                 saveUserData(view)
             }
         }
+        now = Calendar.getInstance().time        // todo get time from user fields
+        activity.let{
+            val act = it as MainActivity
+            mMood = act.getMood()
+        }
+        mTitle = root.findViewById<EditText>(R.id.title_edit)
+        mNote = root.findViewById<EditText>(R.id.details_edit)
         return root
     }
 
@@ -73,23 +87,24 @@ class RecordFragment : Fragment() {
 
     // time, location, mood, title, note, action category
     private suspend fun saveUserData(view: View) {
-        val now = Calendar.getInstance().time        // todo get time from user fields
-        val mLocation = utils.getCurrentLocation(context)
-        val mMood: Int = Mood.SATISFIED
-        val mTitle = view?.findViewById<TextView>(R.id.title_edit)?.text
-        val mNote = view?.findViewById<TextView>(R.id.details_edit)?.text
+        now = Calendar.getInstance().time        // todo get time from user fields
+        val location = utils.getCurrentLocation(context)
+//        mMood: Int = Mood.SATISFIED
         // todo action category
         val record = RecordEntity()
-        if (mLocation != null) {
-            record.lat = mLocation.latitude
-            record.lon = mLocation.longitude
+        if (location != null) {
+            record.lat = location.latitude
+            record.lon = location.longitude
+        }
+        activity.let{
+            val act = it as MainActivity
+            mMood = act.getMood()
         }
         record.mood = mMood
-        record.title = mTitle.toString()
-        record.note = mNote.toString()
-        val dao = MainActivity.getDb().recordDao()
-        dao.insert(record)
-        val size = dao.getAll().value?.size
+        record.title = mTitle.text.toString()
+        record.note = mNote.text.toString()
+        recordViewModel.insert(record)
+        val size = recordViewModel.allRecords.value?.size
         Snackbar.make(view, "Saving! ${size}", Snackbar.LENGTH_LONG)
             .setAction("Click text to make snackbar go away", View.OnClickListener() {
                 //                    Log.e("TESTING", "SAVING SNACK CLICK")

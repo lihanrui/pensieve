@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
@@ -13,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.henryli.tabbed.MainActivity
 import com.henryli.tabbed.R
+import com.henryli.tabbed.data.dao.RecordDao
 import com.henryli.tabbed.data.RecordEntity
 
 /**
@@ -22,14 +22,14 @@ class ReviewFragment : Fragment() {
 
     private lateinit var recordViewModel: RecordViewModel
 //    private lateinit var textView: TextView
-    private lateinit var recyclerView: RecyclerView
     private lateinit var reviewAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>
     private lateinit var viewManager: RecyclerView.LayoutManager
+    private lateinit var records : LiveData<List<RecordEntity>>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        recordViewModel = ViewModelProviders.of(this).get(RecordViewModel::class.java).apply {
-        }
+        recordViewModel = ViewModelProviders.of(activity!!).get(RecordViewModel::class.java)
+        records = recordViewModel.allRecords
     }
 
     override fun onCreateView(
@@ -37,17 +37,8 @@ class ReviewFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_review, container, false)
-//        textView = root.findViewById(R.id.section_label)
-//        recordViewModel.text.observe(viewLifecycleOwner, Observer<String> {
-//            textView.text = it
-//        })
-        val dao = MainActivity.getDb().recordDao()
-        val records: LiveData<List<RecordEntity>> = dao.getAll()
-//        if (records.value != null) {
-//            textView.text = "Found LiveData value"
-//        }
 
-        recyclerView = root.findViewById<RecyclerView>(R.id.review_cardview).apply {
+        val recyclerView = root.findViewById<RecyclerView>(R.id.review_cardview).apply {
             // use this setting to improve performance if you know that changes
             // in content do not change the layout size of the RecyclerView
             setHasFixedSize(true)
@@ -58,29 +49,26 @@ class ReviewFragment : Fragment() {
                 it.orientation = LinearLayoutManager.VERTICAL
             }
             // specify an viewAdapter (see also next example)
-            adapter = ReviewAdapter(records)
+            adapter = ReviewAdapter(this@ReviewFragment.context!!)
             adapter?.let{
                 reviewAdapter = it
             }
         }
 
-
         return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val dao = MainActivity.getDb().recordDao()
-        val records: LiveData<List<RecordEntity>> = dao.getAll()
         records.observe(
-            viewLifecycleOwner,
+            activity!!,
             Observer<List<RecordEntity>> { recordList: List<RecordEntity>? ->
                 // Update the UI.
                 if (recordList != null && recordList.size > 0) {
-//                    textView.text = "Size: ${recordList.size} Title0 ${recordList.get(0).title}"
-                    reviewAdapter = ReviewAdapter(records)
+                    val adapter = reviewAdapter as ReviewAdapter
+                    adapter.setRecords(recordList)
                 }
             })
+        super.onViewCreated(view, savedInstanceState)
     }
 
     companion object {

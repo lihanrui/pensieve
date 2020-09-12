@@ -1,73 +1,77 @@
 package com.henryli.tabbed.ui.main
 
+import android.content.Context
+import android.graphics.PorterDuff
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.lifecycle.LiveData
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.henryli.tabbed.R
+import com.henryli.tabbed.data.Mood
 import com.henryli.tabbed.data.RecordEntity
 import kotlinx.android.synthetic.main.recycler_card.view.*
 
-class ReviewAdapter(private val records: LiveData<List<RecordEntity>>) :
+class ReviewAdapter internal constructor(context: Context) :
     RecyclerView.Adapter<ReviewAdapter.MyViewHolder>() {
+
+    private val inflater: LayoutInflater = LayoutInflater.from(context)
+    private var records = emptyList<RecordEntity>()
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder.
     // Each data item is just a string in this case that is shown in a TextView.
-    class MyViewHolder(itemView: ConstraintLayout) : RecyclerView.ViewHolder(itemView) {
+    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView = itemView.imageView
-        val recycleTitle = itemView.recycler_title
-        val recycleContent = itemView.recycler_content
-        val recycleLocation = itemView.recycler_location
+        val itemTitle = itemView.recycler_title
+        val itemContent = itemView.recycler_content
+        val itemLocation = itemView.recycler_location
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val constraintView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.recycler_card, parent, false) as ConstraintLayout
+        val constraintView =
+            inflater.inflate(R.layout.recycler_card, parent, false)
         return MyViewHolder(constraintView)
     }
 
     override fun getItemCount(): Int {
-        records.value?.let {
-            return it.size
-        }
-        return 0 // maybe return an error?
+        return records.size// maybe return an error?
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        records.value?.let {
-            val record = it.get(position)
-            holder.imageView
-            holder.recycleTitle.text = record.title
-            holder.recycleContent.text = record.note
-            holder.recycleLocation
+        val record = records[position]
+        when(record.mood ){
+            Mood.VERYHAPPY-> {
+                holder.imageView.setImageResource(R.drawable.ic_very_happy_24px)
+                holder.imageView.setImageDrawable()
+                holder.imageView.setColorFilter(R.color.colorBlue) // doesn't work
+            }
+            Mood.HAPPY-> {
+                holder.imageView.setImageResource(R.drawable.ic_happy_24px)
+                holder.imageView.setColorFilter(R.color.colorGreen)
+            }
+            Mood.SATISFIED-> {
+                holder.imageView.setImageResource(R.drawable.ic_satisfied_24px)
+                holder.imageView.setColorFilter(R.color.colorYellow)
+            }
+            Mood.DISSATISFIED-> {
+                holder.imageView.setImageResource(R.drawable.ic_dissatisfied_24px)
+                holder.imageView.setColorFilter(R.color.colorOrange)
+            }
+            Mood.VERYDISSATISFIED-> {
+                holder.imageView.setImageResource(R.drawable.ic_very_dissatisfied_24px)
+                holder.imageView.setColorFilter(R.color.colorRed, PorterDuff.Mode.OVERLAY)
+            }
         }
+        holder.itemTitle.text = record.title
+        holder.itemContent.text = record.note
+        holder.itemLocation
     }
 
-//    // Create new views (invoked by the layout manager)
-//    override fun onCreateViewHolder(
-//        parent: ViewGroup,
-//        viewType: Int
-//    ): ReviewAdapter.MyViewHolder {
-//        // create a new view
-//        val constraintLayoutCard = LayoutInflater.from(parent.context)
-//            .inflate(R.layout.recycler_card, parent, false) as TextView
-//        // set the view's size, margins, paddings and layout parameters
-//        return MyViewHolder(constraintLayoutCard)
-//    }
-
-
-//
-//    // Replace the contents of a view (invoked by the layout manager)
-//    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-//        // - get element from your dataset at this position
-//        // - replace the contents of the view with that element
-//        holder.textView.text = myDataset[position]
-//    }
-//
-//    // Return the size of your dataset (invoked by the layout manager)
-//    override fun getItemCount() = records.size
-
+     fun setRecords(recordList : List<RecordEntity>){
+        this.records = recordList
+        notifyDataSetChanged()
+    }
 }
