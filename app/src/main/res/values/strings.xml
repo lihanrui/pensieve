@@ -2,7 +2,7 @@
     <string name="app_name">Pensieve</string>
     <string name="tab_text_1">Record</string>
     <string name="tab_text_2">Review</string>
-    <string name="date_current">12-01-2020</string>
+    <string name="date_current">12&#8211;01&#8211;2020</string>
     <string name="time_current">00:00:00</string>
     <string name="mood_prompt">HOW ARE YOU?</string>
     <string name="title_prompt">WHAT HAVE YOU BEEN UP TO?</string>
@@ -18,8 +18,9 @@
     <string name="veryDissatisfiedDesc">An icon for very dissatisfied</string>
     <string name="submitButton">Submit</string>
     <string name="card_date">Set Date</string>
-    <string name="textview">Recycler card content</string>
+    <string name="string_recycler_time">Recycler Card Title</string>
     <string name="string_recycler_title">Recycler Card Title</string>
+    <string name="string_recycler_content">Recycler card content</string>
     <string name="mood_description">An icon for the mood</string>
 
 </resources>

@@ -64,10 +64,6 @@ class RecordFragment : Fragment() {
     }
 
     override fun onResume() {
-//        val textView: TextView? = view?.findViewById(R.id.section_label)
-//        pageViewModel.text.observe(viewLifecycleOwner, Observer<String> {
-//            textView?.text = it
-//        })
         setTimeUi()
         super.onResume()
     }
@@ -97,6 +93,7 @@ class RecordFragment : Fragment() {
             val act = it as MainActivity
             mMood = act.getMood()
         }
+        record.time = now.time
         record.mood = mMood
         record.title = mTitle.text.toString()
         record.note = mNote.text.toString()
