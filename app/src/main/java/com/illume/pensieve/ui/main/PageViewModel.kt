@@ -1,4 +1,4 @@
-package com.henryli.tabbed.ui.main
+package com.illume.pensieve.ui.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

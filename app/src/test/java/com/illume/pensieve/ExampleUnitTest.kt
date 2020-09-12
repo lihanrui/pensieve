@@ -1,4 +1,4 @@
-package com.henryli.tabbed
+package com.illume.pensieve
 
 import org.junit.Test
 

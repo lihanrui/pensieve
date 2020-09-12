@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.henryli.tabbed.data.dao
+package com.illume.pensieve.data.dao
 
 import androidx.room.*
 

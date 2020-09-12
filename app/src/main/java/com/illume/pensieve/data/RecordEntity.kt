@@ -1,4 +1,4 @@
-package com.henryli.tabbed.data
+package com.illume.pensieve.data
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

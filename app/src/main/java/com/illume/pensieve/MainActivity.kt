@@ -1,4 +1,4 @@
-package com.henryli.tabbed
+package com.illume.pensieve
 
 import android.os.Bundle
 import android.view.View
@@ -8,9 +8,9 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
-import com.henryli.tabbed.data.Mood
-import com.henryli.tabbed.ui.main.RecordViewModel
-import com.henryli.tabbed.ui.main.SectionsPagerAdapter
+import com.illume.pensieve.data.Mood
+import com.illume.pensieve.ui.main.RecordViewModel
+import com.illume.pensieve.ui.main.SectionsPagerAdapter
 
 class MainActivity : AppCompatActivity() {
     //    val db = Room.databaseBuilder(

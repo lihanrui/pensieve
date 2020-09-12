@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Tabbed</string>
+    <string name="app_name">Pensieve</string>
     <string name="tab_text_1">Record</string>
     <string name="tab_text_2">Review</string>
     <string name="date_current">12-01-2020</string>

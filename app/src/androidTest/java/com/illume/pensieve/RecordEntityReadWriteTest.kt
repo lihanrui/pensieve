@@ -1,11 +1,11 @@
-package com.henryli.tabbed
+package com.illume.pensieve
 
 import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import com.henryli.tabbed.data.database.RecordDatabase
-import com.henryli.tabbed.data.dao.RecordDao
-import com.henryli.tabbed.data.RecordEntity
+import com.illume.pensieve.data.database.RecordDatabase
+import com.illume.pensieve.data.dao.RecordDao
+import com.illume.pensieve.data.RecordEntity
 import org.junit.After
 import org.junit.Before
 import org.junit.Test

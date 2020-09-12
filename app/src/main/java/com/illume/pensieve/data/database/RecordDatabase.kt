@@ -1,11 +1,11 @@
-package com.henryli.tabbed.data.database
+package com.illume.pensieve.data.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.henryli.tabbed.data.RecordEntity
-import com.henryli.tabbed.data.dao.RecordDao
+import com.illume.pensieve.data.RecordEntity
+import com.illume.pensieve.data.dao.RecordDao
 
 @Database(entities = [RecordEntity::class], version = 1, exportSchema = false)
 abstract class RecordDatabase : RoomDatabase() {

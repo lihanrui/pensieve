@@ -1,4 +1,4 @@
-package com.henryli.tabbed.ui.main
+package com.illume.pensieve.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,10 +10,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.henryli.tabbed.MainActivity
-import com.henryli.tabbed.R
-import com.henryli.tabbed.data.dao.RecordDao
-import com.henryli.tabbed.data.RecordEntity
+import com.illume.pensieve.R
+import com.illume.pensieve.data.RecordEntity
 
 /**
  * A display fragment for the database items.

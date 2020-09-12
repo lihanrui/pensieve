@@ -1,9 +1,9 @@
-package com.henryli.tabbed.data.dao
+package com.illume.pensieve.data.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
-import com.henryli.tabbed.data.RecordEntity
+import com.illume.pensieve.data.RecordEntity
 
 @Dao
 interface RecordDao : BaseDao<RecordEntity> {

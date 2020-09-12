@@ -1,4 +1,4 @@
-package com.henryli.tabbed.data
+package com.illume.pensieve.data
 
 class Mood {
     companion object {

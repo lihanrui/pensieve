@@ -1,12 +1,12 @@
-package com.henryli.tabbed.ui.main
+package com.illume.pensieve.ui.main
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.henryli.tabbed.data.RecordEntity
-import com.henryli.tabbed.data.database.RecordDatabase
-import com.henryli.tabbed.data.repository.RecordRepository
+import com.illume.pensieve.data.RecordEntity
+import com.illume.pensieve.data.database.RecordDatabase
+import com.illume.pensieve.data.repository.RecordRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

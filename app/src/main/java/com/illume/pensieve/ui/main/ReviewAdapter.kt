@@ -1,16 +1,14 @@
-package com.henryli.tabbed.ui.main
+package com.illume.pensieve.ui.main
 
 import android.content.Context
 import android.graphics.PorterDuff
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.henryli.tabbed.R
-import com.henryli.tabbed.data.Mood
-import com.henryli.tabbed.data.RecordEntity
+import com.illume.pensieve.R
+import com.illume.pensieve.data.Mood
+import com.illume.pensieve.data.RecordEntity
 import kotlinx.android.synthetic.main.recycler_card.view.*
 
 class ReviewAdapter internal constructor(context: Context) :

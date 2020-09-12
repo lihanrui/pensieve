@@ -1,8 +1,8 @@
-package com.henryli.tabbed.data.repository
+package com.illume.pensieve.data.repository
 
 import androidx.lifecycle.LiveData
-import com.henryli.tabbed.data.dao.RecordDao
-import com.henryli.tabbed.data.RecordEntity
+import com.illume.pensieve.data.dao.RecordDao
+import com.illume.pensieve.data.RecordEntity
 
 class RecordRepository(private val recordDao : RecordDao) {
 
