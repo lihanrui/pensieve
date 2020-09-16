@@ -19,12 +19,12 @@ abstract class RecordDatabase : RoomDatabase() {
 
         fun getDatabase(context: Context) = instance
             ?: synchronized(LOCK) {
-            instance
-                ?: buildDatabase(
-                    context
-                )
-                    .also { instance = it }
-        }
+                instance
+                    ?: buildDatabase(
+                        context
+                    )
+                        .also { instance = it }
+            }
 
         private fun buildDatabase(context: Context) = Room.databaseBuilder(
             context,

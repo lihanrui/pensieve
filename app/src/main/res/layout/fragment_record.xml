@@ -134,6 +134,16 @@
                 android:hint="@string/title_hint"
                 android:inputType="textPersonName|textCapSentences" />
 
+            <LinearLayout
+                android:id="@+id/act_category_select"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal"
+                android:paddingLeft="48dp"
+                android:paddingRight="48dp">
+
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/details_prompt"
                 android:layout_width="wrap_content"
