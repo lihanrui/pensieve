@@ -14,8 +14,6 @@ import kotlinx.android.synthetic.main.fragment_record.*
 
 class MainActivity : AppCompatActivity() {
 
-    private var mood: Int = Mood.SATISFIED
-
     private lateinit var recordViewModel: RecordViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,6 +76,7 @@ class MainActivity : AppCompatActivity() {
         mood = Mood.VERYDISSATISFIED
     }
 
+    private var mood: Int = Mood.SATISFIED
     public fun getMood(): Int {
         return mood
     }
