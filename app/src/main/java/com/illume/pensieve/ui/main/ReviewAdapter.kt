@@ -71,7 +71,7 @@ class ReviewAdapter internal constructor(context: Context) :
         notifyDataSetChanged()
     }
 
-    fun convertLongToTime(time: Long): String {
+    private fun convertLongToTime(time: Long): String {
         val date = Date(time)
         val format = SimpleDateFormat("MM.dd.yyyy HH:mm")
         return format.format(date)

@@ -25,12 +25,6 @@ class MainActivity : AppCompatActivity() {
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
 
-//        val fab: FloatingActionButton = findViewById(R.id.fab)
-//
-//        fab.setOnClickListener { view ->
-//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                .setAction("Action", null).show()
-//        }
         recordViewModel = ViewModelProvider(this).get(RecordViewModel::class.java)
     }
 

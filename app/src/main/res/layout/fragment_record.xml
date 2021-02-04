@@ -132,7 +132,7 @@
                 android:layout_marginRight="36dp"
                 android:ems="10"
                 android:hint="@string/title_hint"
-                android:inputType="textPersonName|textCapSentences" />
+                android:inputType="textAutoCorrect|text" />
 
             <LinearLayout
                 android:id="@+id/act_category_select"
@@ -164,7 +164,7 @@
                 android:layout_marginRight="36dp"
                 android:ems="10"
                 android:hint="@string/details_hint"
-                android:inputType="textMultiLine|textPersonName|textCapSentences" />
+                android:inputType="textAutoCorrect|textMultiLine" />
 
         </LinearLayout>
     </ScrollView>
