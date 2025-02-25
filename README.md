@@ -1,1 +1,1 @@
-Deprecated project. This has been replaced with a new app.
+Deprecated. This has been replaced with a new app.
